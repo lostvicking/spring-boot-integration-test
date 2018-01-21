@@ -1,0 +1,51 @@
+package io.cucumber.tutorial;
+
+import cucumber.api.java8.En;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+
+
+public class StepDefinitions implements En {
+
+    private String REQUEST;
+    private String URI;
+    private Request request;
+    private HttpResponse response;
+
+
+    public StepDefinitions() {
+        Given("^a JSON request$", () -> {
+            REQUEST = "{ \"content\": \"My JSON request\"}";
+        });
+
+        When("^it is received by the endpoint$", () -> {
+            CloseableHttpClient httpClient = HttpClients.createDefault();
+            HttpPost request = new HttpPost("http://localhost:8010/create-request");
+            StringEntity entity = new StringEntity(REQUEST);
+            request.addHeader("content-type", "application/json");
+            request.setEntity(entity);
+            response = httpClient.execute(request);
+
+        });
+
+        Then("^an HTTP OK status code 200 will be returned$", () -> {
+            assert(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK);
+        });
+
+        Given("^a malformed request$", () -> {
+            REQUEST = "Malformed Request";
+        });
+
+        Then("^it will be rejected with HTTP status code (\\d+) Bad Request$", (Integer arg1) -> {
+            assert(response.getStatusLine().getStatusCode() == HttpStatus.SC_BAD_REQUEST);
+        });
+
+    }
+
+
+
+}
