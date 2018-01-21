@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+   asynch-request-creator:
+      image: "vic/asynch-request-creator:1.0-SNAPSHOT"
+      ports:
+          - "8010:8010"
+
+   asynch-request-reader:
+     image: "vic/asynch-request-reader:1.0-SNAPSHOT"
+     ports:
+          - "8020:8020"
+
+   rabbitmq-spring-boot:
+     image: "rabbitmq-spring-boot"
+     ports:
+         - "5672:5672"
+         - "15672:15672"
+
+   mysql-server:
+     image: "mysql-cucumber:latest"
+     restart: always
+     environment:
+          - MYSQL_ROOT_PASSWORD=devpassword
+     ports:
+          - "3306:3306"
