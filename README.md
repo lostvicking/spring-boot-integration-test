@@ -12,7 +12,24 @@ from RabbitMQ and persists it to a MySQL database.
 The creator service has intergration tests written with Cucumber which is BDD testing framework.
 
 To run the integration tests:
+Compile both microservices
+```
+mvn clean install -DskipTests
+```
+
+
 /docker folder cotains the docker-compose that has all the services put together
+in /docker/mysql-image create Docker image for MySQL DB, call it mysql-cucumber
+```
+docker build -t mysql-cucumber .
+```
+
+in /docker/rabbitmq-image create Docker image for RabbitMQ, call it rabbitmq-spring-boot
+```
+docker build -t rabbitmq-spring-boot .
+```
+
+In /docker run docke-compose to bring up the microservice, MySQL and RabbitMQ together
 ```
 docker-compose up
 ```
