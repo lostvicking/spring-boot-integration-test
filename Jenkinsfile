@@ -15,6 +15,9 @@ pipeline {
                 dir ('docker/rabbitmq-image'){
                   sh 'docker build -t rabbitmq-spring-boot .'
                 }
+                dir ('docker'){
+                  sh 'docker-compose up'
+                }
             }
         }
     }
