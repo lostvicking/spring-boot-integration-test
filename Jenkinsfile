@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'mvn  clean package'
                 sh 'cd asynch-request-creator-bdd'
                 sh 'mvn  clean package'
                 sh 'cd ..'
