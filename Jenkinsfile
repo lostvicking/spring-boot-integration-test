@@ -4,16 +4,16 @@ pipeline {
         stage('Build') {
             steps {
                 dir ('asynch-request-creator-bdd') {
-                  bat 'mvn  clean package'
+                  sh 'mvn  clean package'
                 }
                 dir ('asynch-request-reader-bdd'){
-                  bat 'mvn  clean package'
+                  sh 'mvn  clean package'
                 }
                 dir ('docker/mysql-image'){
-                  bat 'docker build -t mysql-cucumber .'
+                  sh 'docker build -t mysql-cucumber .'
                 }
                 dir ('docker/rabbitmq-image'){
-                  bat 'docker build -t rabbitmq-spring-boot .'
+                  sh 'docker build -t rabbitmq-spring-boot .'
                 }
             }
         }
