@@ -3,11 +3,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'cd asynch-request-creator-bdd'
-                bat 'mvn  clean package'
-                bat 'cd ..'
-                bat 'cd asynch-request-reader-bdd'
-                bat 'mvn  clean package'
+                dir ('cd asynch-request-creator-bdd') {
+                  bat 'mvn  clean package'
+                }
+                dir ('cd asynch-request-reader-bdd'){
+                  bat 'mvn  clean package'
+                }
             }
         }
     }
