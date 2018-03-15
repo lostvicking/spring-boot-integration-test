@@ -22,8 +22,12 @@ pipeline {
         dir(path: 'docker') {
           bat 'docker-compose up'
         }
-
+        sleep 2 MINUTES
+        echo "Done sleeping!"
       }
+    }
+    stage('Run-tests') {
+      echo "RUN TESTS HERE!"
     }
   }
 }
