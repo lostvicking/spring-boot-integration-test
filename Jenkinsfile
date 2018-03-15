@@ -18,8 +18,10 @@ pipeline {
             }
         }
         stage('Docker-compose') {
-          dir ('docker'){
-            sh 'docker-compose up'
+          steps {
+            dir ('docker'){
+              sh 'docker-compose up'
+            }
           }
         }
     }
