@@ -27,7 +27,10 @@ pipeline {
       }
     }
     stage('Run-tests') {
-      echo 'RUN TESTS HERE!'
+      steps {
+        echo 'RUN TESTS HERE!'
+      }
+
     }
   }
 }
