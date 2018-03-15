@@ -20,7 +20,7 @@ pipeline {
     stage('Docker-compose') {
       steps {
         dir(path: 'docker') {
-          bat 'docker-compose up'
+          bat 'docker-compose up -d'
         }
         sleep 90
         echo 'Done sleeping!'
