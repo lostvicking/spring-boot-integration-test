@@ -1,3 +1,4 @@
 io\cucumber\tutorial\AsynchRequestController.class
 io\cucumber\tutorial\Request.class
 io\cucumber\tutorial\AsynchRequestApplication.class
+io\cucumber\tutorial\HealthCheck.class

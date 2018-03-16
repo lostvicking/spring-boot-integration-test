@@ -38,3 +38,5 @@ Then from the directory asynch-request-creator-bdd/ run Maven integration tests:
 ```
 mvn verify
 ```
+
+Decision to go with Jenkins inside a Docker container motivated by the availability of tools like wget and curl in Linux which are useful when doing development.
