@@ -45,6 +45,7 @@ pipeline {
         bat 'docker -d -p 5672:5672 -p 15672:15672 run rabbitmq-spring-boot:latest'
         bat 'docker -d -p 3306:3306 run mysql-cucumber:latest'
       }
+    }
   }
   post {
        always {
