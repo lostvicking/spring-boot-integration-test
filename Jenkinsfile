@@ -24,7 +24,7 @@ pipeline {
     stage('Docker-compose') {
       steps {
         dir(path: 'docker') {
-          bat 'docker-compose up -d'
+          sh 'docker-compose up -d'
         }
         waitUntil {
           script {
