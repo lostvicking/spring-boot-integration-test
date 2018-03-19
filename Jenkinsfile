@@ -1,8 +1,15 @@
 pipeline {
-  agent any
+  //agent any
+  agent {
+        docker {
+            image 'maven:3-alpine'
+            args '-v /root/.m2:/root/.m2'
+        }
+    }
   stages {
     stage('Build') {
       steps {
+          def mvnHome = tool 'maven3'
           dir(path: 'asynch-request-creator-bdd') {
             sh 'mvn  clean package'
           }
