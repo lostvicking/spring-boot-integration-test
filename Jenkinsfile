@@ -31,6 +31,10 @@ pipeline {
     stage('Run-tests') {
       steps {
         echo 'RUN TESTS HERE!'
+        dir(path: 'asynch-request-creator-bdd') {
+          bat 'mvn  verify'
+        }
+        echo 'TESTS DONE!'
       }
 
     }
