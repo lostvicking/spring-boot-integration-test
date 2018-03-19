@@ -3,11 +3,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+          def mvnHome = tool 'maven3'
+
           dir(path: 'asynch-request-creator-bdd') {
-            sh 'mvn  clean package'
+            sh '${mvnHome}/bin/mvn  clean package'
           }
           dir(path: 'asynch-request-reader-bdd') {
-            sh 'mvn  clean package'
+            sh '${mvnHome}/bin/mvn  clean package'
           }
           dir(path: 'docker/mysql-image') {
             sh 'docker build -t mysql-cucumber .'
