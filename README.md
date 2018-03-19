@@ -39,4 +39,17 @@ Then from the directory asynch-request-creator-bdd/ run Maven integration tests:
 mvn verify
 ```
 
-Decision to go with Jenkins inside a Docker container motivated by the availability of tools like wget and curl in Linux which are useful when doing development.
+Decision to go with Jenkins inside a Docker container motivated by the availability  
+of tools like wget and curl in Linux which are useful when doing development.
+
+Start Jenkins Blue Ocean is Docker using:  
+´´´
+docker run ^
+  --rm ^
+  -u root ^
+  -p 8080:8080 ^
+  -v jenkins-data:/var/jenkins_home ^
+  -v /var/run/docker.sock:/var/run/docker.sock ^
+  -v "%HOMEPATH%":/home ^
+  jenkinsci/blueocean
+  ´´´
