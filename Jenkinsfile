@@ -23,9 +23,13 @@ pipeline {
     }
     stage('Docker-compose') {
       steps {
-        dir(path: 'docker') {
-          sh 'docker-compose up -d'
+      script {
+          def dockerHome = tool 'docker'
+          dir(path: 'docker') {
+            sh "'${dockerHome}/bin/docker-compose' up -d"
+          }
         }
+
         waitUntil {
           script {
            sh script: 'curl http://asynch-request-creator:8010/actuator/health | grep UP -c > status'
