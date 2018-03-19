@@ -4,10 +4,10 @@ pipeline {
     stage('Build') {
       steps {
             dir(path: 'asynch-request-creator-bdd') {
-              bat 'mvn  clean package'
+              bat 'mvn  clean package -DskipTests'
             }
             dir(path: 'asynch-request-reader-bdd') {
-              bat 'mvn  clean package'
+              bat 'mvn  clean package -DskipTests'
             }
             dir(path: 'docker/mysql-image') {
               bat 'docker build -t mysql-cucumber .'
