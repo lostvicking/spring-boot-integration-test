@@ -34,9 +34,16 @@ pipeline {
         dir(path: 'asynch-request-creator-bdd') {
           bat 'mvn  verify'
         }
-        echo 'TESTS DONE!'
+          echo 'TESTS DONE!'
       }
 
     }
   }
+  post {
+       always {
+       dir(path: 'docker') {
+         bat 'docker-compose down'
+       }
+       }
+   }
 }
