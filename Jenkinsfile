@@ -34,6 +34,9 @@ pipeline {
           bat 'mvn  verify'
         }
         echo 'Tests are done!'
+        dir(path: 'docker') {
+          bat 'docker-compose down'
+        }
       }
 
     }
@@ -48,11 +51,11 @@ pipeline {
       }
     }
   }
-  post {
-       always {
-         dir(path: 'docker') {
-           bat 'docker-compose down'
-         }
-       }
-   }
+  //post {
+  //     always {
+  //       dir(path: 'docker') {
+  //         bat 'docker-compose down'
+  //       }
+  //     }
+  // }
 }
