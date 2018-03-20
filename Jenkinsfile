@@ -39,6 +39,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
+        sleep 30
         echo 'Deploying to PROD!'
         bat 'docker run -d --rm -p 8010:8010  vic/asynch-request-creator:1.0-SNAPSHOT'
         bat 'docker run -d --rm -p 8020:8020  vic/asynch-request-reader:1.0-SNAPSHOT'
