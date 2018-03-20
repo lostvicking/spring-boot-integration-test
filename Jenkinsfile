@@ -40,10 +40,10 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying to PROD!'
-        bat 'docker run -d --rm -p 8010:8010  vic/asynch-request-creator'
-        bat 'docker run -d --rm -p 8020:8020  vic/asynch-request-reader'
-        bat 'docker run -d --rm -p 5672:5672 -p 15672:15672 rabbitmq-spring-boot'
-        bat 'docker run -d --rm -p 3306:3306  mysql-cucumber'
+        bat 'docker run -d --rm -p 8010:8010  vic/asynch-request-creator:1.0-SNAPSHOT'
+        bat 'docker run -d --rm -p 8020:8020  vic/asynch-request-reader:1.0-SNAPSHOT'
+        bat 'docker run -d --rm -p 5672:5672 -p 15672:15672 rabbitmq-spring-boot:latest'
+        bat 'docker run -d --rm -p 3306:3306  mysql-cucumber:latest'
       }
     }
   }
