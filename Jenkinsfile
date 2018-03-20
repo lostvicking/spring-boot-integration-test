@@ -10,10 +10,10 @@ pipeline {
               bat 'mvn  clean package -DskipTests'
             }
             dir(path: 'docker/mysql-image') {
-              bat 'docker build -t mysql-cucumber .'
+              bat 'docker build -t mysql-cucumber:0.0.1 .'
             }
             dir(path: 'docker/rabbitmq-image') {
-              bat 'docker build -t rabbitmq-spring-boot .'
+              bat 'docker build -t rabbitmq-spring-boot:0.0.1 .'
             }
       }
     }
