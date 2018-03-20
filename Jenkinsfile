@@ -47,7 +47,7 @@ pipeline {
         bat 'docker run -d --rm -p 8010:8010  vic/asynch-request-creator:0.0.1'
         bat 'docker run -d --rm -p 8020:8020  vic/asynch-request-reader:0.0.1'
         bat 'docker run -d --rm -p 5672:5672 -p 15672:15672 rabbitmq-spring-boot:0.0.1'
-        bat 'docker run -d --rm -p 3306:3306  mysql-cucumber:0.0.1'
+        bat 'docker run -d --rm -e MYSQL_ROOT_PASSWORD=devpassword -p 3306:3306  mysql-cucumber:0.0.1'
       }
     }
   }
