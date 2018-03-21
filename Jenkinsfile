@@ -51,4 +51,11 @@ pipeline {
       }
     }
   }
+  post {
+    failure {
+      dir(path: 'docker') {
+        bat 'docker-compose down'
+      }
+    }
+  }
 }
