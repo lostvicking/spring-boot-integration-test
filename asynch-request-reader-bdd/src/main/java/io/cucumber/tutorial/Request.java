@@ -1,5 +1,6 @@
 package io.cucumber.tutorial;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,6 +14,7 @@ public class Request {
     @GeneratedValue
     private Integer id;
 
+    @Column(name="content", length=20)
     private String content;
 
     public Integer getId() {
