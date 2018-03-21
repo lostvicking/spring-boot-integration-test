@@ -44,12 +44,12 @@ public class StepDefinitions implements En {
         });
 
         Then("^an HTTP OK status code 200 will be returned$", () -> {
-            assertEquals(response.getStatusLine().getStatusCode(),HttpStatus.SC_OK);
+            assertEquals(HttpStatus.SC_OK, response.getStatusLine().getStatusCode());
         });
 
 
         Then("^it will be rejected with HTTP status code 400 Bad Request$", () -> {
-            assertEquals(response.getStatusLine().getStatusCode(),HttpStatus.SC_BAD_REQUEST);
+            assertEquals(HttpStatus.SC_BAD_REQUEST, response.getStatusLine().getStatusCode());
 
         });
 
