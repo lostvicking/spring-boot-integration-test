@@ -14,7 +14,7 @@ public class Request {
     @GeneratedValue
     private Integer id;
 
-    @Column(name="content", length=20)
+    @Column(name="content")
     private String content;
 
     public Integer getId() {

@@ -19,21 +19,6 @@ public class AsynchRequestController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AsynchRequestApplication.class);
 
-    /*
-
-    Run RabbitMQ using:
-    docker run -d  -p 5672:5672 -p 15672:15672  rabbitmq:management
-
-    test endpopint using:
-
-    valid:
-    curl -H "Content-Type: application/json" -X POST -d '{"content":"xyz"}' http://localhost:8080/create-request
-
-    invalid:
-    curl -H "Content-Type: application/json" -X POST -d 'garbage' http://localhost:8080/create-request
-
-     */
-
     @RequestMapping(method = RequestMethod.POST, value = "/create-request")
     @ResponseStatus(HttpStatus.OK)
     public Request createRequest(@RequestBody Request request) {

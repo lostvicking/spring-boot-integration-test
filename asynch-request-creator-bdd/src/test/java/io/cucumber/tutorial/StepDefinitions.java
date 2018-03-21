@@ -28,8 +28,8 @@ public class StepDefinitions implements En {
             REQUEST = "Malformed Request";
         });
 
-        Given("^a request with content length too long$", () -> {
-            REQUEST = "{ \"content\": \"WAAAAAY TOOOO LOOOOOOOOONNNNNNNNGGGGGGGG!!!!!   \"}";
+        Given("^a request with incorrect field", () -> {
+            REQUEST = "{ \"incorrect\": \"this is something\"}";
         });
 
 

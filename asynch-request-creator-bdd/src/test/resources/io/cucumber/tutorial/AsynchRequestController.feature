@@ -13,7 +13,7 @@ Feature: Accept request
         When it is received by the endpoint
         Then it will be rejected with HTTP status code 400 Bad Request
 
-    Scenario: Request with invalid content length is rejected
-            Given a request with content length too long
+    Scenario: Request with incorrect field is rejected
+            Given a request with incorrect field
             When it is received by the endpoint
             Then it will be rejected with HTTP status code 400 Bad Request
