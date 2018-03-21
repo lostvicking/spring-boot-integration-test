@@ -53,6 +53,12 @@ public class StepDefinitions implements En {
 
         });
 
+
+        Then("^it will be rejected with HTTP status code 500 Internal Server Error$", () -> {
+            assertEquals(HttpStatus.SC_INTERNAL_SERVER_ERROR, response.getStatusLine().getStatusCode());
+
+        });
+
     }
 
 

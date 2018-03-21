@@ -16,4 +16,4 @@ Feature: Accept request
     Scenario: Request with incorrect field is rejected
             Given a request with incorrect field
             When it is received by the endpoint
-            Then it will be rejected with HTTP status code 400 Bad Request
+            Then it will be rejected with HTTP status code 500 Internal Server Error
