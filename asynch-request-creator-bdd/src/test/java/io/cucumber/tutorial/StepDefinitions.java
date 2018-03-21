@@ -8,6 +8,8 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
+import static org.junit.Assert.assertEquals;
+
 
 public class StepDefinitions implements En {
 
@@ -27,7 +29,7 @@ public class StepDefinitions implements En {
         });
 
         Given("^a request with content length too long$", () -> {
-            REQUEST = "{ \"content\": \"WAAAAAY TOOOO LOOOOOOOOONNNNNNNNGGGGGGGG!!!!!\"}";
+            REQUEST = "{ \"content\": \"WAAAAAY TOOOO LOOOOOOOOONNNNNNNNGGGGGGGG!!!!!   \"}";
         });
 
 
@@ -42,12 +44,13 @@ public class StepDefinitions implements En {
         });
 
         Then("^an HTTP OK status code 200 will be returned$", () -> {
-            assert(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK);
+            assertEquals(response.getStatusLine().getStatusCode(),HttpStatus.SC_OK);
         });
 
 
-        Then("^it will be rejected with HTTP status code (\\d+) Bad Request$", (Integer arg1) -> {
-            assert(response.getStatusLine().getStatusCode() == HttpStatus.SC_BAD_REQUEST);
+        Then("^it will be rejected with HTTP status code (\\d+) Bad Request$", () -> {
+            assertEquals(response.getStatusLine().getStatusCode(),HttpStatus.SC_BAD_REQUEST);
+
         });
 
     }
