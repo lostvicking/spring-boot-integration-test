@@ -12,3 +12,8 @@ Feature: Accept request
         Given a malformed request
         When it is received by the endpoint
         Then it will be rejected with HTTP status code 400 Bad Request
+
+    Scenario: Request with invalid content length is rejected
+            Given a request with content length too long
+            When it is received by the endpoint
+            Then it will be rejected with HTTP status code 400 Bad Request

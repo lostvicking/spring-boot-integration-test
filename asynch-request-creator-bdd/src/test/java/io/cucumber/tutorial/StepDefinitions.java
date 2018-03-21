@@ -22,6 +22,15 @@ public class StepDefinitions implements En {
             REQUEST = "{ \"content\": \"My JSON request\"}";
         });
 
+        Given("^a malformed request$", () -> {
+            REQUEST = "Malformed Request";
+        });
+
+        Given("^a request with content length too long$", () -> {
+            REQUEST = "{ \"content\": \"WAAAAAY TOOOO LOOOOOOOOONNNNNNNNGGGGGGGG!!!!!\"}";
+        });
+
+
         When("^it is received by the endpoint$", () -> {
             CloseableHttpClient httpClient = HttpClients.createDefault();
             HttpPost request = new HttpPost("http://localhost:8010/create-request");
@@ -36,9 +45,6 @@ public class StepDefinitions implements En {
             assert(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK);
         });
 
-        Given("^a malformed request$", () -> {
-            REQUEST = "Malformed Request";
-        });
 
         Then("^it will be rejected with HTTP status code (\\d+) Bad Request$", (Integer arg1) -> {
             assert(response.getStatusLine().getStatusCode() == HttpStatus.SC_BAD_REQUEST);
