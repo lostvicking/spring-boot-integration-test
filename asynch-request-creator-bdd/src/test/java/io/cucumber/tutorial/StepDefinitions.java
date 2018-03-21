@@ -48,7 +48,7 @@ public class StepDefinitions implements En {
         });
 
 
-        Then("^it will be rejected with HTTP status code (\\d+) Bad Request$", () -> {
+        Then("^it will be rejected with HTTP status code 400 Bad Request$", () -> {
             assertEquals(response.getStatusLine().getStatusCode(),HttpStatus.SC_BAD_REQUEST);
 
         });
