@@ -18,7 +18,7 @@ public class AsynchRequestHandler {
 
     @RabbitHandler
     public void receive(String in) {
-        throw new Exception("Woops")
+        throw new Exception("Woops");
         /*
         System.out.println(" [x] Received '" + in + "'");
         Request request = new Request();
