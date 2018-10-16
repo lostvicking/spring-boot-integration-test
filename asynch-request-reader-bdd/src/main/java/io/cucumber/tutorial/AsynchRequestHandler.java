@@ -18,13 +18,11 @@ public class AsynchRequestHandler {
 
     @RabbitHandler
     public void receive(String in) {
-        throw new RuntimeException("Woops");
-        /*
         System.out.println(" [x] Received '" + in + "'");
         Request request = new Request();
         request.setContent(in);
         requestRepository.save(request);
-        */
+        
     }
 
     public static void main(String[] args) {
