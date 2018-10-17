@@ -22,7 +22,6 @@ public class AsynchRequestHandler {
         Request request = new Request();
         request.setContent(in);
         requestRepository.save(request);
-        
     }
 
     public static void main(String[] args) {
