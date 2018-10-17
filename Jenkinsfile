@@ -52,6 +52,12 @@ pipeline {
     }
   }
   post {
+    always {
+		dir(path: 'asynch-request-creator-bdd') {
+          junit 'target/surefire-reports/*.xml'
+        }
+ 	  
+    }
     failure {
       dir(path: 'docker') {
         bat 'docker-compose down'
