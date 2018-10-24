@@ -35,7 +35,8 @@ public class StepDefinitions implements En {
 
         When("^it is received by the endpoint$", () -> {
             CloseableHttpClient httpClient = HttpClients.createDefault();
-            HttpPost request = new HttpPost("http://localhost:8010/create-request");
+            //HttpPost request = new HttpPost("http://localhost:8010/create-request");
+            HttpPost request = new HttpPost("http://localhost:8010/wrong");
             StringEntity entity = new StringEntity(REQUEST);
             request.addHeader("content-type", "application/json");
             request.setEntity(entity);
