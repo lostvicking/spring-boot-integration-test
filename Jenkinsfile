@@ -28,6 +28,9 @@ pipeline {
     stage('Docker-compose') {
       steps {
           dir(path: 'docker') {
+            echo "========================="
+            echo "PATH is: $PATH"
+            echo "========================="
             sh 'docker-compose up -d'
           }
 
