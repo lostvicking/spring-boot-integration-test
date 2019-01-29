@@ -18,6 +18,9 @@ pipeline {
               sh 'mvn  clean package -DskipTests'
             }
             dir(path: 'docker/mysql-image') {
+              echo "========================="
+              echo "PATH is: $PATH"
+              echo "========================="
               sh 'docker build -t mysql-cucumber:0.0.1 .'
             }
             dir(path: 'docker/rabbitmq-image') {
@@ -28,9 +31,7 @@ pipeline {
     stage('Docker-compose') {
       steps {
           dir(path: 'docker') {
-            echo "========================="
-            echo "PATH is: $PATH"
-            echo "========================="
+            
             sh 'docker-compose up -d'
           }
 
