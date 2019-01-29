@@ -4,23 +4,23 @@ pipeline {
     stage('Build') {
       steps {
             dir(path: 'asynch-request-creator-bdd') {
-              bat 'mvn  clean package -DskipTests'
+              sh 'mvn  clean package -DskipTests'
             }
             dir(path: 'asynch-request-reader-bdd') {
-              bat 'mvn  clean package -DskipTests'
+              sh 'mvn  clean package -DskipTests'
             }
             dir(path: 'docker/mysql-image') {
-              bat 'docker build -t mysql-cucumber:0.0.1 .'
+              sh 'docker build -t mysql-cucumber:0.0.1 .'
             }
             dir(path: 'docker/rabbitmq-image') {
-              bat 'docker build -t rabbitmq-spring-boot:0.0.1  .'
+              sh 'docker build -t rabbitmq-spring-boot:0.0.1  .'
             }
       }
     }
     stage('Docker-compose') {
       steps {
           dir(path: 'docker') {
-            bat 'docker-compose up -d'
+            sh 'docker-compose up -d'
           }
 
           sleep 120
@@ -31,11 +31,11 @@ pipeline {
     stage('Run-tests') {
       steps {
         dir(path: 'asynch-request-creator-bdd') {
-          bat 'mvn  verify'
+          sh 'mvn  verify'
         }
         echo 'Tests are done!'
         dir(path: 'docker') {
-          bat 'docker-compose down'
+          sh 'docker-compose down'
         }
       }
 
@@ -60,7 +60,7 @@ pipeline {
     }
     failure {
       dir(path: 'docker') {
-        bat 'docker-compose down'
+        sh 'docker-compose down'
       }
     }
   }
