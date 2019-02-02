@@ -1,13 +1,10 @@
 pipeline {
   agent any
-  
+  tools {
+    maven 'M3'
+  }
   stages {
-    stage('Build Maven') {
-      agent {
-        docker {
-          image 'maven:3-alpine'
-        }
-      }
+    stage('Build') {
       steps {
             dir(path: 'asynch-request-creator-bdd') {
               sh 'mvn  clean package -DskipTests'
@@ -15,10 +12,6 @@ pipeline {
             dir(path: 'asynch-request-reader-bdd') {
               sh 'mvn  clean package -DskipTests'
             }
-      }
-    }
-    stage('Build Docker') {
-      steps {
             dir(path: 'docker/mysql-image') {
               sh 'docker build -t mysql-cucumber:0.0.1 .'
             }
