@@ -27,7 +27,7 @@ pipeline {
             sh 'docker-compose up -d'
           }
 
-          sleep 120
+          sleep 180
 
           echo 'Done sleeping, services should be available now!'
       }
