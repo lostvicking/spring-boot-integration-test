@@ -1,8 +1,6 @@
 pipeline {
   agent any
-  environment {
-    PATH = "/usr/local/bin:$PATH"
-  }
+  
   stages {
     stage('Build') {
       steps {
@@ -13,10 +11,6 @@ pipeline {
               sh 'mvn  clean package -DskipTests'
             }
             dir(path: 'docker/mysql-image') {
-              echo "========================="
-              echo "PATH is: $PATH"
-              echo "========================="
-              sh 'ls -al /usr/local/bin'
               sh 'docker build -t mysql-cucumber:0.0.1 .'
             }
             dir(path: 'docker/rabbitmq-image') {
