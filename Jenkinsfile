@@ -23,7 +23,6 @@ pipeline {
     stage('Docker-compose') {
       steps {
           dir(path: 'docker') {
-            sh 'docker network create storm'
             sh 'docker-compose up -d'
           }
 
