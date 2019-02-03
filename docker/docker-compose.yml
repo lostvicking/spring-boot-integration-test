@@ -2,42 +2,31 @@ version: '3.7'
 
 services:
    asynch-request-creator:
+      hostname: asynch-request-creator
       image: "vic/asynch-request-creator:0.0.1"
       ports:
           - "8010:8010"
-      networks: 
-         default:
-            aliases:
-               - asynch-request-creator
 
    asynch-request-reader:
+     hostname: asynch-request-reader
      image: "vic/asynch-request-reader:0.0.1"
      ports:
           - "8020:8020"
-     networks: 
-         default:
-            aliases:
-               - asynch-request-reader
 
 
    rabbitmq-spring-boot:
+     hostname: rabbitmq-spring-boot
      image: "rabbitmq-spring-boot:0.0.1"
      ports:
          - "5672:5672"
          - "15672:15672"
-     networks: 
-         default:
-            aliases:
-               - rabbitmq-spring-boot         
 
    mysql-server:
+     hostname: mysql-server
      image: "mysql-cucumber:0.0.1"
      restart: always
      environment:
           - MYSQL_ROOT_PASSWORD=devpassword
      ports:
           - "3306:3306"
-     networks: 
-         default:
-            aliases:
-               - mysql-server
+
