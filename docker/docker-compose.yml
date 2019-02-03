@@ -29,5 +29,3 @@ services:
           - MYSQL_ROOT_PASSWORD=devpassword
      ports:
           - "3306:3306"
-     network:
-         - mynet
