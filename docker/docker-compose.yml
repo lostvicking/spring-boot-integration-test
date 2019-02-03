@@ -2,6 +2,7 @@ version: '3.4'
 
 services:
    asynch-request-creator:
+      container_name: asynch-request-creator
       image: "vic/asynch-request-creator:0.0.1"
       ports:
           - "8010:8010"
