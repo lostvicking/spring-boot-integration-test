@@ -7,12 +7,16 @@ services:
       ports:
           - "8010:8010"
           - "127.0.0.1:8010:8010"
+      network:
+         - mynet
 
    asynch-request-reader:
      hostname: asynch-request-reader
      image: "vic/asynch-request-reader:0.0.1"
      ports:
           - "8020:8020"
+     network:
+         - mynet
 
 
    rabbitmq-spring-boot:
@@ -21,6 +25,8 @@ services:
      ports:
          - "5672:5672"
          - "15672:15672"
+     network:
+         - mynet
 
    mysql-server:
      hostname: mysql-server
@@ -30,4 +36,9 @@ services:
           - MYSQL_ROOT_PASSWORD=devpassword
      ports:
           - "3306:3306"
+     network:
+         - mynet
 
+networks:
+  mynet:
+    external: true
