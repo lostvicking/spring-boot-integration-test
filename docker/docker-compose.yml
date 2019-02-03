@@ -6,6 +6,7 @@ services:
       image: "vic/asynch-request-creator:0.0.1"
       ports:
           - "8010:8010"
+          - "127.0.0.1:8010:8010"
 
    asynch-request-reader:
      hostname: asynch-request-reader
