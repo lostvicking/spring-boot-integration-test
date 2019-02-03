@@ -35,6 +35,7 @@ pipeline {
     stage('Run-tests') {
       steps {
         dir(path: 'asynch-request-creator-bdd') {
+          sh 'netstat -na'
           sh 'mvn  verify'
         }
         echo 'Tests are done!'
