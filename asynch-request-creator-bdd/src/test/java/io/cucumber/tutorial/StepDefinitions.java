@@ -25,7 +25,7 @@ public class StepDefinitions implements En {
         });
 
         Given("^a malformed request$", () -> {
-            REQUEST = "Malformed Request";
+            REQUEST = "A Malformed Request";
         });
 
         Given("^a request with incorrect field", () -> {
