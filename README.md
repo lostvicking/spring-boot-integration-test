@@ -93,6 +93,12 @@ curl --header "Content-Type: application/json"   --request POST   --data 'Malfor
 ```
 docker run -i -t --name docker-java8-maven --rm jamesdbloom/docker-java8-maven
 ```
+
+Clone Git repo:
+```
+git clone git@github.com:lostvicking/spring-boot-integration-test.git
+```
+
 Optionally, install nano for editing:
 ```
 apt-get install nano
