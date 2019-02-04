@@ -54,8 +54,8 @@ run Jenkins docker:
   jenkinsci/blueocean
 ```
 
-## install docker compose in jenkins image
-Attached to the image an run the following:
+## Install docker compose in jenkins image
+Attach to the jenkins image and run the following:
 ```
 export GLIBC="2.28-r0"
 
@@ -71,7 +71,7 @@ curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compo
 chmod +x /usr/local/bin/docker-compose
 ```
 
-# CURL commands to test asynch-request-creator-bdd:
+# cURL commands to test asynch-request-creator-bdd:
 To install cURL
 ```
 apk update
