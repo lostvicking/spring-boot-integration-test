@@ -109,3 +109,8 @@ Configure Git user:
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
+
+Un-do previous commit:
+```
+git reset --soft HEAD~1
+```
