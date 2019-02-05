@@ -13,7 +13,7 @@ public class AsynchRequestApplication {
 
     @Bean
     Queue queue() {
-        // durable: queue will survive a broker restart
+        // Durable: queue will survive a broker restart
         return new Queue(queueName, true);
     }
 
