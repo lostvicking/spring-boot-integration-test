@@ -96,7 +96,7 @@ docker run -i -t --name docker-java8-maven --rm jamesdbloom/docker-java8-maven
 
 Clone Git repo:
 ```
-git clone git@github.com:lostvicking/spring-boot-integration-test.git
+git clone https://github.com/lostvicking/spring-boot-integration-test.git
 ```
 
 Optionally, install nano for editing:
