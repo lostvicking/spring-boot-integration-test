@@ -19,6 +19,6 @@ public class AsynchRequestApplication {
 
 
     public static void main(String[] args) {
-        SpringApplication.run(AsynchRequestApplication.class, args);
+        Application.run(AsynchRequestApplication.class, args);
     }
 }
